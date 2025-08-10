@@ -144,15 +144,19 @@ export default async function ForecastPage(props: { searchParams?: Record<string
                 <td className="px-4 py-2 text-right">{centsToCurrencyString(r.openingCents)}</td>
                 <td className="px-4 py-2 text-right bg-slate-50">{centsToCurrencyString(r.expectedInflowsCents)}</td>
                 <td className="px-4 py-2 text-right bg-slate-50">{centsToCurrencyString(r.expectedOutflowsCents)}</td>
-                <td className="px-4 py-2 text-right bg-slate-50">{centsToCurrencyString(r.forecastNetCents)}</td>
+                <td className={`px-4 py-2 text-right bg-slate-50 ${r.forecastNetCents >= 0 ? "text-green-700" : "text-red-700"}`}>
+                  {centsToCurrencyString(Math.abs(r.forecastNetCents))}
+                </td>
                 <td className="px-4 py-2 text-right bg-slate-50">{centsToCurrencyString(r.closingForecastCents)}</td>
                 <td className="px-4 py-2 text-right">{centsToCurrencyString(r.actualInflowsCents)}</td>
                 <td className="px-4 py-2 text-right">{centsToCurrencyString(r.actualOutflowsCents)}</td>
-                <td className="px-4 py-2 text-right">{centsToCurrencyString(r.actualNetCents)}</td>
+                <td className={`px-4 py-2 text-right ${r.actualNetCents >= 0 ? "text-green-700" : "text-red-700"}`}>
+                  {centsToCurrencyString(Math.abs(r.actualNetCents))}
+                </td>
                 <td className="px-4 py-2 text-right">{centsToCurrencyString(r.closingActualCents)}</td>
                 <td className={`px-4 py-2 text-right font-medium ${r.varianceCents >= 0 ? "text-green-700" : "text-red-700"} ${Math.abs(r.varianceCents) >= varianceThresholdCents ? (r.varianceCents >= 0 ? "bg-green-50" : "bg-red-50") : ""}`}>
                   {r.varianceCents >= 0 ? "▲ " : "▼ "}
-                  {centsToCurrencyString(r.varianceCents)}
+                  {centsToCurrencyString(Math.abs(r.varianceCents))}
                 </td>
               </tr>
             ))}
