@@ -7,6 +7,7 @@ const links = [
   { href: "/receivables", label: "Receivables" },
   { href: "/payables", label: "Payables" },
   { href: "/balances", label: "Balances" },
+  { href: "/budget", label: "Budget" },
   { href: "/forecast", label: "Forecast" },
 ];
 

@@ -61,7 +61,7 @@ User Form → Server Action → Prisma → SQLite → revalidatePath() → UI Up
 
 ### Core Data Models
 - **AccountsReceivable**: Invoices/payments expected from others
-- **AccountsPayable**: Bills/payments you need to make  
+- **AccountsPayable**: Bills/payments you need to make
 - **Balance**: Monthly snapshots of bank account balances
 
 ### Forecast Algorithm
@@ -99,7 +99,7 @@ Located in `src/app/forecast/page.tsx:31-89`, the forecast engine:
 - Extends Next.js core rules with TypeScript support
 
 ### Database Environment
-- SQLite database file: `prisma/dev.db` 
+- SQLite database file: `prisma/dev.db`
 - Connection string: `DATABASE_URL=file:./dev.db`
 
 ## Development Patterns
@@ -107,10 +107,10 @@ Located in `src/app/forecast/page.tsx:31-89`, the forecast engine:
 ### Server Action Pattern
 ```typescript
 async function actionName(formData: FormData) {
-  "use server";
-  // Extract and validate form data
-  // Database operation via Prisma
-  // Redirect or revalidate
+"use server";
+// Extract and validate form data
+// Database operation via Prisma
+// Redirect or revalidate
 }
 ```
 
@@ -127,6 +127,6 @@ Forecast calculations use first-day-of-month normalization for consistent monthl
 
 The `tools/screenshot-crawl.ts` script uses Playwright to automatically screenshot all application pages for visual regression testing. Configure via environment variables:
 - `START_URL` - Base URL to crawl
-- `OUT_DIR` - Screenshot output directory  
+- `OUT_DIR` - Screenshot output directory
 - `MAX_PAGES` - Maximum pages to capture
 - `CONCURRENCY` - Parallel browser instances
